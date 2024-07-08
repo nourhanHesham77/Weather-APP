@@ -37,7 +37,7 @@ async function getData(){
       search = "cairo";
     }
     try{
-     const response = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=5cc05c41cf9c43f59a1112040240307&q=${search}&days=3`);
+     const response = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=5cc05c41cf9c43f59a1112040240307&q=${search}&days=3`);
  
      if (!response.ok) {
         const message = `An error has occured: ${response.status}`;
@@ -72,7 +72,7 @@ if(day>7){
     if(day2>7){
       day2 = day2-7;
     }
-    day2 = day2 +1;
+    day2 = day2+1;
     secondDay.innerHTML = weekday[day2];
     secDegH.innerHTML = data.forecast.forecastday[1].day.maxtemp_c;
     secDegL.innerHTML = data.forecast.forecastday[1].day.mintemp_c;
