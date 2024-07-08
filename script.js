@@ -72,6 +72,7 @@ if(day>7){
     if(day2>7){
       day2 = day2-7;
     }
+    day2 = day2 +1;
     secondDay.innerHTML = weekday[day2];
     secDegH.innerHTML = data.forecast.forecastday[1].day.maxtemp_c;
     secDegL.innerHTML = data.forecast.forecastday[1].day.mintemp_c;
@@ -84,9 +85,13 @@ if(day>7){
     const dateToDay3 =data.forecast.forecastday[2].date;
     let date3 = new Date(dateToDay3);
     let day3 = date.getDate();
+    console.log(day3)
     if(day3>7){
       day3 = day3-7;
     }
+    day3 = day3 + 2;
+    console.log("day3 "+day3)
+  
     console.log(data.forecast.forecastday[2].day.condition.icon);
     thirdDay.innerHTML = weekday[day3];
     thirdDegH.innerHTML = data.forecast.forecastday[2].day.maxtemp_c;
