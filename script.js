@@ -53,11 +53,10 @@ async function getData(){
     let date = new Date(dateToDay);
     let day = date.getDate();
     let monthC = date.getMonth();
-    console.log('Today: ', weekday[day]);
-    console.log('month: ', month[monthC]);
-    console.log('country name: ', data.location.name);
-    console.log('NOW temp :', data.current.temp_c);
-    currentStateImg.src = data.current.condition.icon;
+if(day>7){
+  day = day-7;
+}
+    currentStateImg.src = 'https:' + data.current.condition.icon;
     currentCity.innerHTML = data.location.name;
     currentDeg.innerHTML = data.current.temp_c;
     today.innerHTML = weekday[day];
@@ -70,14 +69,13 @@ async function getData(){
     const dateToDay2 =data.forecast.forecastday[1].date;
     let date2 = new Date(dateToDay2);
     let day2 = date.getDate();
-    console.log('Tomorrow: ', weekday[day2]);
-    console.log('country name: ', data.location.name);
-    console.log('maxtemp :', data.forecast.forecastday[1].day.maxtemp_c);
-    console.log('mintemp :', data.forecast.forecastday[1].day.mintemp_c);
+    if(day2>7){
+      day2 = day2-7;
+    }
     secondDay.innerHTML = weekday[day2];
     secDegH.innerHTML = data.forecast.forecastday[1].day.maxtemp_c;
     secDegL.innerHTML = data.forecast.forecastday[1].day.mintemp_c;
-    secStateImg.src = data.forecast.forecastday[1].day.condition.icon;
+    secStateImg.src = 'https:' + data.forecast.forecastday[1].day.condition.icon;
     secCondition.innerHTML = data.forecast.forecastday[1].day.condition.text;
     
 
@@ -86,14 +84,14 @@ async function getData(){
     const dateToDay3 =data.forecast.forecastday[2].date;
     let date3 = new Date(dateToDay3);
     let day3 = date.getDate();
-    console.log('Tomorrow: ', weekday[day]);
-    console.log('country name: ', data.location.name);
-    console.log('maxtemp :', data.forecast.forecastday[2].day.maxtemp_c);
-    console.log('mintemp :', data.forecast.forecastday[2].day.mintemp_c);
+    if(day3>7){
+      day3 = day3-7;
+    }
+    console.log(data.forecast.forecastday[2].day.condition.icon);
     thirdDay.innerHTML = weekday[day3];
     thirdDegH.innerHTML = data.forecast.forecastday[2].day.maxtemp_c;
     thirdDegL.innerHTML = data.forecast.forecastday[2].day.mintemp_c;
-    thirdStateImg.src = data.forecast.forecastday[2].day.condition.icon;
+    thirdStateImg.src = 'https:' +data.forecast.forecastday[2].day.condition.icon;
     thirdCondition.innerHTML = data.forecast.forecastday[2].day.condition.text;
     }catch(error){
         console.error('Error:', error);
