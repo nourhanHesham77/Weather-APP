@@ -125,8 +125,6 @@ a:hover{
 }
 .day{
     background-color: #323544;
-    /* width:fit-content; */
-    height: 400px;
     color: #fff;
 }
 
@@ -152,7 +150,7 @@ a:hover{
 .temp{
     width: 85%;
     margin: auto;
-    height: 80px;
+    /* height: 80px; */
 }
 
 .temp h1{
@@ -162,7 +160,6 @@ a:hover{
     width: 90px;
 }
 .condition{
-    margin-top: 1.5rem;
     color: aqua;
 }
 .condition p{
@@ -183,7 +180,8 @@ a:hover{
 }
 
 .icons-container{
-    display: inline-flex;
+    display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
 }
 .icons-container i {
@@ -192,11 +190,11 @@ a:hover{
     font-size: 1.5rem;
 }
 .icons-container .iconState{
-    width: calc(70%/3);
-    display: inline-flex;
-    margin: 2rem;
-    font-size: 1.1rem;
-    justify-content: space-between;
+    width: calc(97%/3);
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    justify-content: center;
 }
 #secDegH,#thirdDegH{
     font-size: 1.6rem;
@@ -212,6 +210,7 @@ body footer{
 .foot-one{
     color: #fff;
     display: block;
+    width: 100%;
 }
 .foot-one .search-box{
     width: 100%;
@@ -224,15 +223,12 @@ body footer{
 
 @media screen and (max-width:844px){
     .day{
-        /* width: 500px; */
-        height: 400px;
+        /* important to know*/
+        height: unset;
+        width: 100%;
     }
     .days{
-        width: 100%;
-        margin: auto!important;
-        position: absolute;
-        top: 50%;
-        left: 1%;
+        padding: 8px;
     }
     .icons-container i {
         color:#8e8f94;
