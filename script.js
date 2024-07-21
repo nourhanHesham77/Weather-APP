@@ -7,19 +7,25 @@ let today = document.getElementById("today");
 let todayNum = document.getElementById("todayNum");
 let Month = document.getElementById("Month");
 let todayCondition = document.getElementById("condition");
+
 //secondDay
-let secondDay = document.getElementById("secDay");
-let secDegH = document.getElementById("secDegH");
-let secDegL = document.getElementById("secDegL");
-let secStateImg = document.getElementById("state-secDay-img");
-let secCondition = document.getElementById("secCondition");
+let secondDayInfo = {
+  Name : document.getElementById("secDay"),
+  degH : document.getElementById("secDegH"),
+  degL : document.getElementById("secDegL"),
+  stateImg : document.getElementById("state-secDay-img"),
+  condition : document.getElementById("secCondition"),
+};
+
 
 //thirdDay
-let thirdDay = document.getElementById("thirdDay");
-let thirdDegH = document.getElementById("thirdDegH");
-let thirdDegL = document.getElementById("thirdDegL");
-let thirdStateImg = document.getElementById("state-thirdDay-img");
-let thirdCondition = document.getElementById("thirdCondition");
+let thirdDayInfo = {
+  Name : document.getElementById("thirdDay"),
+  degH : document.getElementById("thirdDegH"),
+  degL : document.getElementById("thirdDegL"),
+  stateImg : document.getElementById("state-thirdDay-img"),
+  condition : document.getElementById("thirdCondition"),
+};
 
 // async makes the function return a promise
 // await => makes JavaScript wait for the promise object to settle before running the code in the next line
@@ -30,12 +36,12 @@ console.log
 window.addEventListener("load" , getData);
 searchInput.addEventListener("input",getData);
 
-async function getData(){
+async function getData(search){
     console.log("hello");
-    search = searchInput.value;
-    if(search.length === 0){
-      search = "cairo";
-    }
+    // search = searchInput.value;
+    // if(search.length === 0){
+    //   search = "cairo";
+    // }
     try{
      const response = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=5cc05c41cf9c43f59a1112040240307&q=${search}&days=3`);
  
@@ -51,11 +57,9 @@ async function getData(){
     const dateToDay =data.forecast.forecastday[0].date;
     // const d = new Date();
     let date = new Date(dateToDay);
-    let day = date.getDate();
+    let day = date.getDay();
     let monthC = date.getMonth();
-if(day>7){
-  day = day-7;
-}
+    console.log(day);
     currentStateImg.src = 'https:' + data.current.condition.icon;
     currentCity.innerHTML = data.location.name;
     currentDeg.innerHTML = data.current.temp_c;
@@ -64,7 +68,7 @@ if(day>7){
     Month.innerHTML = month[monthC];
     todayCondition.innerHTML = data.current.condition.text;
 
-    console.log("/SECOND DAY/")
+
     // second day
     const dateToDay2 =data.forecast.forecastday[1].date;
     let date2 = new Date(dateToDay2);
@@ -102,6 +106,17 @@ if(day>7){
         console.error('Error:', error);
     }
 
+}
+
+function setDayInfo(index,obj,data){
+  const dateToDay =data.forecast.forecastday[index].date;
+  let date = new Date(dateToDay);
+  let day = date.getDay();
+  obj.Name.innerHTML = weekday[day];
+  obj.degH.innerHTML = data.forecast.forecastday[index].day.maxtemp_c;
+  obj.degL.innerHTML = data.forecast.forecastday[index].day.mintemp_c;
+  obj.stateImg.src = 'https:' +data.forecast.forecastday[index].day.condition;
+  obj.condition.innerHTML = data.forecast.forecastday[index].day.condition.text;
 }
 
 // keydown Event: This event occurs when the user has pressed down the key. It will occur even if the key pressed does not produce a character value.
