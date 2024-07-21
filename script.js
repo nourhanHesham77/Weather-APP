@@ -59,12 +59,13 @@ async function getData(search){
     let date = new Date(dateToDay);
     let day = date.getDay();
     let monthC = date.getMonth();
+    let dayInMonth = date.getUTCDate();
     console.log(day);
     currentStateImg.src = 'https:' + data.current.condition.icon;
     currentCity.innerHTML = data.location.name;
     currentDeg.innerHTML = data.current.temp_c;
     today.innerHTML = weekday[day];
-    todayNum.innerHTML = day;
+    todayNum.innerHTML = dayInMonth;
     Month.innerHTML = month[monthC];
     todayCondition.innerHTML = data.current.condition.text;
 
