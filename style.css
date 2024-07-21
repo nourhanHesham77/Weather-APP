@@ -3,22 +3,20 @@ body{
     padding: 0;
     /* background-color: #323544; */
     background-color: rgb(30, 32, 43);
-    position: relative;
 }
 
 nav{
     background-color: rgb(30, 32, 43);
     width: 100%;
-    padding: 0 8rem!important;
 }
 
-.container{
+/* .container{
     display: inline-flex;
     color: #fff;
     width: 15%;
     justify-content: space-between;
     margin: 5px;
-}
+} */
 .container img{
     width: 50px;
     height: 40px;
@@ -69,54 +67,59 @@ a:hover{
     color: #1d1ca9;
 } */
 .containImg{
-    background-image: url("img/back.jpg");
+    background-image: url(img/back.jpg);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100% 50%; /*important to know*/
     width: 100%;
-    /* height: 320px; */
-    position: relative;
 }
 
 .search-box{
-    width: 80%;
+    /* width: 80%;
     margin: auto;
     position: relative!important;
-    margin-bottom: 8rem;
+    margin-bottom: 8rem; */
+    width: 80%;
+    margin: auto;
+    background-color: rgb(30, 32, 43);
+    border-radius: 20px;
+    padding: 5px;
+    color: #fff;
+    display: flex;
+    align-items: center;
 }
 
 .search-txt{
-    
-    background-color: rgb(30, 32, 43);
+    background-color: transparent;
     border-radius: 20px;
     width: 100%;
     padding: 15px;
-    align-items: center;
     color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none !important;
+}
+
+/*important to know*/
+.search-txt:focus {
+    color: #fff;
+    background-color: transparent;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem transparent;
 }
 
 #btn{
     color: #fff;
     border-radius: 20px;
-    position: absolute;
     width: 140px;
-    right: 1%;
     padding: 11px;
     top: 5px;
 }
 
-.whetherContainer{
-    background-color: rgb(30, 32, 43);
-    height: 100%;
-    width: fit-content;
-    /* height: 320px; */
-}
 
 .days{
     width: 85%;
     margin: auto!important;
-    position: absolute;
-    top: 50%;
-    left: 8%;
     /* height: 320px; */
     /* width: unset; */
 }
