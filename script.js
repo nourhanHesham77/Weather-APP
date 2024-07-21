@@ -70,38 +70,9 @@ async function getData(search){
 
 
     // second day
-    const dateToDay2 =data.forecast.forecastday[1].date;
-    let date2 = new Date(dateToDay2);
-    let day2 = date.getDate();
-    if(day2>7){
-      day2 = day2-7;
-    }
-    day2 = day2+1;
-    secondDay.innerHTML = weekday[day2];
-    secDegH.innerHTML = data.forecast.forecastday[1].day.maxtemp_c;
-    secDegL.innerHTML = data.forecast.forecastday[1].day.mintemp_c;
-    secStateImg.src = 'https:' + data.forecast.forecastday[1].day.condition.icon;
-    secCondition.innerHTML = data.forecast.forecastday[1].day.condition.text;
-    
-
-    console.log("/third DAY/")
+    setDayInfo(1,secondDayInfo,data);
     // thied day
-    const dateToDay3 =data.forecast.forecastday[2].date;
-    let date3 = new Date(dateToDay3);
-    let day3 = date.getDate();
-    console.log(day3)
-    if(day3>7){
-      day3 = day3-7;
-    }
-    day3 = day3 + 2;
-    console.log("day3 "+day3)
-  
-    console.log(data.forecast.forecastday[2].day.condition.icon);
-    thirdDay.innerHTML = weekday[day3];
-    thirdDegH.innerHTML = data.forecast.forecastday[2].day.maxtemp_c;
-    thirdDegL.innerHTML = data.forecast.forecastday[2].day.mintemp_c;
-    thirdStateImg.src = 'https:' +data.forecast.forecastday[2].day.condition.icon;
-    thirdCondition.innerHTML = data.forecast.forecastday[2].day.condition.text;
+    setDayInfo(2,thirdDayInfo,data);
     }catch(error){
         console.error('Error:', error);
     }
@@ -115,7 +86,7 @@ function setDayInfo(index,obj,data){
   obj.Name.innerHTML = weekday[day];
   obj.degH.innerHTML = data.forecast.forecastday[index].day.maxtemp_c;
   obj.degL.innerHTML = data.forecast.forecastday[index].day.mintemp_c;
-  obj.stateImg.src = 'https:' +data.forecast.forecastday[index].day.condition;
+  obj.stateImg.src = 'https:' +data.forecast.forecastday[index].day.condition.icon;
   obj.condition.innerHTML = data.forecast.forecastday[index].day.condition.text;
 }
 
