@@ -90,6 +90,15 @@ function setDayInfo(index,obj,data){
   obj.condition.innerHTML = data.forecast.forecastday[index].day.condition.text;
 }
 
+// Important to know
+searchInput.addEventListener("input" ,()=>{
+  getData(searchInput.value ? searchInput.value : "cairo");
+});
+
+window.addEventListener("load",()=>{
+  getData("cairo");
+})
+
 // keydown Event: This event occurs when the user has pressed down the key. It will occur even if the key pressed does not produce a character value.
 // keypress Event: This event occurs when the user presses a key that produces a character value. These include keys such as the alphabetic, numeric, and punctuation keys. Modifier keys such as ‘Shift’, ‘CapsLock’, ‘Ctrl’ etc. do not produce a character, therefore they have no ‘keypress’ event attached to them.
 // keyup Event: This event occurs when the user has released the key. It will occur even if the key released does not produce a character value.
